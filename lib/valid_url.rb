@@ -8,7 +8,6 @@ module ActiveModel
       domain = YAML.load File.read(File.dirname(__FILE__) + '/valid_url/config/domain.yml')
 
       PROTOCOLS = domain["protocols"]
-      ZONES = domain["zones"]
 
       def validate_each(record, attribute, value)
         begin
@@ -42,7 +41,7 @@ module ActiveModel
       def valid_host?(host)
         return false unless host.present? && valid_characters?(host)
         labels = host.split('.')
-        valid_length?(host) && valid_labels?(labels) && (valid_ip?(host) || valid_zone?(labels.last))
+        valid_length?(host) && valid_labels?(labels)
       end
 
       # each label must be between 1 and 63 characters long
@@ -55,16 +54,6 @@ module ActiveModel
         host.length <= 253
       end
 
-      # only existent domain name zones
-      def valid_zone?(zone)
-        UrlValidator::ZONES.include?(zone.mb_chars.downcase.to_s)
-      end
-
-      # check if host is an ip-address
-      def valid_ip?(host)
-        host =~ Resolv::IPv4::Regex
-      end
-
       # disallow some prohibited characters
       def valid_characters?(host)
         !host[/[\s\!\\"$%&'\(\)*+,:;<=>?@\[\]^|£§°ç\/]/] && host.last != '.'
@@ -74,7 +63,6 @@ module ActiveModel
       def valid_path?(path)
         !path[/\s/]
       end
-
     end
   end
 end

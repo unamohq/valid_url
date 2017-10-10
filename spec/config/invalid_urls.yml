@@ -14,7 +14,6 @@ pointless:
 misprints:
   - htt://www.website.com
   - htttp://www.website.com
-  - http://foo_bar.com
   - http://example.com.
   - http://example.com./foo
   - http://ex ample.com

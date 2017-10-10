@@ -67,7 +67,7 @@ module ActiveModel
 
       # disallow some prohibited characters
       def valid_characters?(host)
-        !host[/[\s\!\\"$%&'\(\)*+_,:;<=>?@\[\]^|£§°ç\/]/] && host.last != '.'
+        !host[/[\s\!\\"$%&'\(\)*+,:;<=>?@\[\]^|£§°ç\/]/] && host.last != '.'
       end
 
       # disallow blank caracters in the path

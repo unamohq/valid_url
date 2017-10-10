@@ -30,6 +30,7 @@ common:
   - www.my-example-blogsite.com
   - www.website.com/~smith////
   - www.example.no
+  - http://foo_bar.com
 
 port:
   - http://example.com:8000/display?lang=en&article=fred

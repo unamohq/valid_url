@@ -1,6 +1,7 @@
 # -*- encoding : utf-8 -*-
 require "addressable/uri"
 require "resolv"
+require "simpleidn"
 
 module ActiveModel
   module Validations
@@ -57,7 +58,8 @@ module ActiveModel
 
       # only existent domain name zones
       def valid_zone?(zone)
-        UrlValidator::ZONES.include?(zone.mb_chars.downcase.to_s)
+        normalized_zone = zone.mb_chars.downcase.to_s
+        UrlValidator::ZONES.include?(normalized_zone) || UrlValidator::ZONES.include?(SimpleIDN.to_ascii(normalized_zone))
       end
 
       # check if host is an ip-address

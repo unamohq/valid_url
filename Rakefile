@@ -14,6 +14,14 @@ RDoc::Task.new(:rdoc) do |rdoc|
   rdoc.rdoc_files.include('lib/**/*.rb')
 end
 
+task :console do
+  require 'irb'
+  require 'irb/completion'
+  require 'valid_url'
+  ARGV.clear
+  IRB.start
+end
+
 
 
 

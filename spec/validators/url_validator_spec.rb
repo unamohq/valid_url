@@ -9,7 +9,7 @@ class Validatable
   validates :url, url: true
 end
 
-def load_yml path
+def load_yml(path)
   YAML.load File.read(File.expand_path(path))
 end
 

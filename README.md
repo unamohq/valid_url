@@ -17,6 +17,15 @@ Run the following command to install it:
 bundle install
 ```
 
+
+## Update
+
+Update TLD list:
+
+```
+rake update
+```
+
 ## Usage
 
 ```ruby

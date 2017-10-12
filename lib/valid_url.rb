@@ -7,7 +7,7 @@ module ActiveModel
   module Validations
     class UrlValidator < ActiveModel::EachValidator
       PROTOCOLS = ['http', 'https']
-      ZONES = YAML.load File.read(File.dirname(__FILE__) + '/valid_url/config/zones.yml')
+      ZONES     = YAML.load File.read(File.dirname(__FILE__) + '/valid_url/config/zones.yml')
 
       def validate_each(record, attribute, value)
         begin

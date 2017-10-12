@@ -8,10 +8,8 @@ require 'yaml'
 module ActiveModel
   module Validations
     class UrlValidator < ActiveModel::EachValidator
-      domain = YAML.load File.read(File.dirname(__FILE__) + '/valid_url/config/domain.yml')
-
-      PROTOCOLS = domain["protocols"]
-      ZONES = domain["zones"]
+      PROTOCOLS = ['http', 'https']
+      ZONES = YAML.load File.read(File.dirname(__FILE__) + '/valid_url/config/zones.yml')
 
       def validate_each(record, attribute, value)
         begin

@@ -22,6 +22,11 @@ task :console do
   IRB.start
 end
 
+task :update do
+  require "valid_url/domain_list_updater"
+  ValidUrl::DomainListUpdater.update
+end
+
 
 
 

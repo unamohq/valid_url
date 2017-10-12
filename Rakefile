@@ -14,19 +14,10 @@ RDoc::Task.new(:rdoc) do |rdoc|
   rdoc.rdoc_files.include('lib/**/*.rb')
 end
 
-task :console do
-  require 'irb'
-  require 'irb/completion'
-  require 'valid_url'
-  ARGV.clear
-  IRB.start
-end
-
 task :update do
   require "valid_url/domain_list_updater"
   ValidUrl::DomainListUpdater.update
 end
-
 
 
 

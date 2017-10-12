@@ -2,8 +2,6 @@
 require "addressable/uri"
 require "resolv"
 require "simpleidn"
-require 'active_model'
-require 'yaml'
 
 module ActiveModel
   module Validations
